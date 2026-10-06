@@ -1,0 +1,1842 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Moh. Kamruzzaman | Senior Zoho Developer</title>
+    <meta
+      name="description"
+      content="Senior Zoho Developer specializing in Zoho CRM, Books, Creator, Deluge scripting, API integrations and e-invoicing compliance. Freelance and long-term contracts, remote worldwide."
+    />
+    <meta name="author" content="Moh. Kamruzzaman" />
+    <meta name="theme-color" content="#0c1220" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Moh. Kamruzzaman | Senior Zoho Developer"
+    />
+    <meta
+      property="og:description"
+      content="CRM, ERP & API Integration Specialist. 5 years building Zoho systems that remove manual work for clients across the US, UK, Europe and the Caribbean."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Avoid theme flash before first paint -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var dark = saved
+            ? saved === "dark"
+            : !window.matchMedia("(prefers-color-scheme: light)").matches;
+          document.documentElement.classList.toggle("dark", dark);
+        } catch (e) {}
+      })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#eef6ff",
+                100: "#d9eaff",
+                200: "#bcdbff",
+                300: "#8ec4ff",
+                400: "#59a4ff",
+                500: "#3386fe",
+                600: "#1d66f4",
+                700: "#1551e1",
+                800: "#1843b6",
+                900: "#1a3c8f",
+              },
+              ink: {
+                900: "#070b14",
+                800: "#0c1220",
+                700: "#111a2e",
+                600: "#18233c",
+                500: "#243b5c",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Space Grotesk", "Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Safety net so no decorative element can widen the page.
+         `clip` (not `hidden`) keeps position: sticky working. */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+
+      /* Section reveal on scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      /* Decorative grid backdrop */
+      .grid-bg {
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(51, 134, 254, 0.07) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(51, 134, 254, 0.07) 1px,
+            transparent 1px
+          );
+        background-size: 56px 56px;
+        mask-image: radial-gradient(
+          ellipse 80% 60% at 50% 0%,
+          #000 40%,
+          transparent 100%
+        );
+        -webkit-mask-image: radial-gradient(
+          ellipse 80% 60% at 50% 0%,
+          #000 40%,
+          transparent 100%
+        );
+      }
+
+      .glow {
+        filter: blur(90px);
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          100deg,
+          #3386fe 0%,
+          #59a4ff 45%,
+          #22d3ee 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Logo marquee */
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .marquee-track {
+        animation: marquee 32s linear infinite;
+      }
+      .marquee:hover .marquee-track {
+        animation-play-state: paused;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track {
+          animation: none;
+        }
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, 0.45);
+        border-radius: 99px;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-white text-slate-700 antialiased dark:bg-ink-800 dark:text-slate-300"
+  >
+    <a
+      href="#about"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-white"
+      >Skip to content</a
+    >
+
+    <!-- ============================== HEADER ============================== -->
+    <header
+      id="header"
+      class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav class="relative flex h-16 items-center justify-end md:h-20">
+          <!-- Desktop nav (centred; the header carries no branding) -->
+          <div
+            class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-slate-200/80 bg-white/70 px-2 py-1.5 backdrop-blur-xl lg:flex dark:border-white/10 dark:bg-white/5"
+          >
+            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#services">Services</a>
+            <a class="nav-link" href="#testimonials">Testimonials</a>
+            <a class="nav-link" href="#contact">Contact</a>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-2">
+            <button
+              id="theme-toggle"
+              type="button"
+              aria-label="Toggle dark mode"
+              class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200/80 bg-white/70 text-slate-600 backdrop-blur-xl transition hover:text-brand-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:text-brand-400"
+            >
+              <svg
+                class="h-5 w-5 dark:hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"
+                />
+              </svg>
+              <svg
+                class="hidden h-5 w-5 dark:block"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              >
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+              </svg>
+            </button>
+
+            <a
+              href="#contact"
+              class="hidden rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition hover:bg-brand-500 sm:inline-block"
+              >Hire Me</a
+            >
+
+            <button
+              id="menu-toggle"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200/80 bg-white/70 text-slate-600 backdrop-blur-xl lg:hidden dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+            >
+              <svg
+                class="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              >
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="mx-4 hidden overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-2xl backdrop-blur-xl lg:hidden dark:border-white/10 dark:bg-ink-700/95"
+      >
+        <a class="m-link" href="#home">Home</a>
+        <a class="m-link" href="#about">About</a>
+        <a class="m-link" href="#skills">Skills</a>
+        <a class="m-link" href="#projects">Projects</a>
+        <a class="m-link" href="#services">Services</a>
+        <a class="m-link" href="#testimonials">Testimonials</a>
+        <a class="m-link" href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <!-- ============================== HERO ============================== -->
+    <section
+      id="home"
+      class="relative overflow-hidden pb-20 pt-28 md:pb-28 md:pt-36"
+    >
+      <div class="absolute inset-0 grid-bg"></div>
+      <div
+        class="glow absolute -left-32 -top-24 h-[28rem] w-[28rem] rounded-full bg-brand-500/25 dark:bg-brand-600/25"
+      ></div>
+      <div
+        class="glow absolute -right-24 top-32 h-[22rem] w-[22rem] rounded-full bg-cyan-400/20 dark:bg-cyan-500/15"
+      ></div>
+
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid items-center gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-16"
+        >
+          <!-- Copy -->
+          <div class="reveal">
+            <span
+              class="inline-flex items-center gap-2 rounded-full border border-brand-500/25 bg-brand-500/10 px-3.5 py-1.5 text-xs font-semibold text-brand-700 dark:text-brand-300"
+            >
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"
+                ></span>
+              </span>
+              Available for freelance &amp; contract work
+            </span>
+
+            <h1
+              class="mt-6 font-display text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white"
+            >
+              Moh. Kamruzzaman
+              <span class="mt-2 block gradient-text"
+                >Senior Zoho Developer</span
+              >
+            </h1>
+
+            <p
+              class="mt-3 font-display text-base font-medium text-slate-500 dark:text-slate-400"
+            >
+              CRM, ERP &amp; API Integration Specialist
+            </p>
+
+            <p class="mt-6 max-w-2xl text-base leading-relaxed sm:text-lg">
+              I help businesses get more out of Zoho - from CRM and automation
+              to custom portals and financial reporting. I build systems that
+              remove manual work, connect disconnected tools, and give owners
+              clear visibility into their operations.
+            </p>
+
+            <div class="mt-9 flex flex-wrap items-center gap-3">
+              <a
+                href="https://wa.me/8801615250363"
+                target="_blank"
+                rel="noopener"
+                class="group inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-brand-600/25 transition hover:-translate-y-0.5 hover:bg-brand-500"
+              >
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.08 3.33 5.05 4.54.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"
+                  />
+                  <path
+                    d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.93L2 22l5.35-1.4a9.8 9.8 0 0 0 4.69 1.2h.01c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.75 9.75 0 0 0 12.04 2zm0 17.97h-.01a8.16 8.16 0 0 1-4.15-1.14l-.3-.18-3.09.81.83-3.02-.19-.31a8.13 8.13 0 0 1-1.25-4.35c0-4.52 3.68-8.19 8.21-8.19 2.19 0 4.25.86 5.8 2.4a8.15 8.15 0 0 1 2.4 5.8c0 4.52-3.68 8.18-8.25 8.18z"
+                  />
+                </svg>
+                WhatsApp Me
+              </a>
+
+              <a
+                href="#projects"
+                class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-800 backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-700 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-brand-400/60 dark:hover:text-brand-300"
+              >
+                View Case Studies
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+
+              <a
+                href="mailto:zoho.advisor2015@gmail.com"
+                class="inline-flex items-center gap-2 px-2 py-3 text-sm font-semibold text-slate-600 underline-offset-4 transition hover:text-brand-600 hover:underline dark:text-slate-400 dark:hover:text-brand-300"
+              >
+                zoho.advisor2015@gmail.com
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <dl
+              class="mt-12 grid max-w-xl grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4"
+            >
+              <div>
+                <dt
+                  class="font-display text-2xl font-bold text-slate-900 dark:text-white"
+                >
+                  <span class="counter" data-to="5">0</span>+
+                </dt>
+                <dd class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  Years in Zoho
+                </dd>
+              </div>
+              <div>
+                <dt
+                  class="font-display text-2xl font-bold text-slate-900 dark:text-white"
+                >
+                  <span class="counter" data-to="12">0</span>+
+                </dt>
+                <dd class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  Zoho apps worked with
+                </dd>
+              </div>
+              <div>
+                <dt
+                  class="font-display text-2xl font-bold text-slate-900 dark:text-white"
+                >
+                  <span class="counter" data-to="4">0</span>
+                </dt>
+                <dd class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  Regions served
+                </dd>
+              </div>
+              <div>
+                <dt
+                  class="font-display text-2xl font-bold text-slate-900 dark:text-white"
+                >
+                  100%
+                </dt>
+                <dd class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  Remote delivery
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Visual card -->
+          <div class="reveal relative mx-auto w-full max-w-sm lg:max-w-none">
+            <div
+              class="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-brand-500/20 via-transparent to-cyan-400/20 blur-2xl"
+            ></div>
+
+            <div
+              class="relative rounded-[1.75rem] border border-slate-200 bg-white/80 p-6 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06]"
+            >
+              <div class="flex items-center gap-4">
+                <div class="relative">
+                  <div
+                    class="absolute -inset-1 rounded-full bg-gradient-to-tr from-brand-500 to-cyan-400 opacity-70 blur-[3px]"
+                  ></div>
+                  <img
+                    src="profile.jpg"
+                    alt="Moh. Kamruzzaman"
+                    width="80"
+                    height="80"
+                    class="relative h-20 w-20 rounded-full object-cover object-top ring-2 ring-white dark:ring-white/15"
+                  />
+                </div>
+                <div>
+                  <p
+                    class="font-display font-bold text-slate-900 dark:text-white"
+                  >
+                    Moh. Kamruzzaman
+                  </p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">
+                    Rajshahi, Bangladesh
+                  </p>
+                  <p
+                    class="mt-1 text-xs font-medium text-emerald-600 dark:text-emerald-400"
+                  >
+                    Open to remote, global clients
+                  </p>
+                </div>
+              </div>
+
+              <div class="my-6 h-px bg-slate-200 dark:bg-white/10"></div>
+
+              <ul class="space-y-3.5 text-sm">
+                <li class="flex items-start gap-3">
+                  <span
+                    class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500"
+                  ></span>
+                  <span
+                    ><strong
+                      class="font-semibold text-slate-900 dark:text-white"
+                      >Deluge scripting</strong
+                    >
+                    at an advanced level - custom functions, workflows,
+                    blueprints</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500"
+                  ></span>
+                  <span
+                    ><strong
+                      class="font-semibold text-slate-900 dark:text-white"
+                      >Multi-role portals</strong
+                    >
+                    for customers, doctors, lawyers and admins</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500"
+                  ></span>
+                  <span
+                    ><strong
+                      class="font-semibold text-slate-900 dark:text-white"
+                      >E-invoicing compliance</strong
+                    >
+                    - ZATCA Phase 2, Peppol PINT-AE, ZUGFeRD</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span
+                    class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500"
+                  ></span>
+                  <span
+                    ><strong
+                      class="font-semibold text-slate-900 dark:text-white"
+                      >Clients in</strong
+                    >
+                    the US, UK, Europe and the Caribbean</span
+                  >
+                </li>
+              </ul>
+
+              <div class="mt-6 grid grid-cols-2 gap-3">
+                <a
+                  href="tel:+8801615250363"
+                  class="rounded-xl border border-slate-200 px-3 py-2.5 text-center text-xs font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/10 dark:text-slate-200 dark:hover:border-brand-400/60"
+                  >Call</a
+                >
+                <a
+                  href="https://www.linkedin.com/in/moh-kamruzzaman-75866a34a"
+                  target="_blank"
+                  rel="noopener"
+                  class="rounded-xl border border-slate-200 px-3 py-2.5 text-center text-xs font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/10 dark:text-slate-200 dark:hover:border-brand-400/60"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TECH MARQUEE ============================== -->
+    <section
+      class="marquee relative overflow-hidden border-y border-slate-200 bg-slate-50/70 py-5 dark:border-white/5 dark:bg-white/[0.02]"
+      aria-hidden="true"
+    >
+      <div
+        class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent dark:from-ink-800"
+      ></div>
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent dark:from-ink-800"
+      ></div>
+      <div class="flex w-max marquee-track gap-10 px-5">
+        <!-- track duplicated for a seamless loop -->
+        <div class="flex shrink-0 items-center gap-10" id="marquee-items"></div>
+        <div
+          class="flex shrink-0 items-center gap-10"
+          id="marquee-items-2"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section id="about" class="relative py-20 md:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div class="reveal">
+            <p class="section-eyebrow">About</p>
+            <h2 class="section-title">
+              Zoho systems that actually fit how a business runs
+            </h2>
+            <div class="mt-6 space-y-5 text-base leading-relaxed">
+              <p>
+                I help businesses around the world get more out of Zoho - from
+                CRM and automation to custom portals and financial reporting.
+                With
+                <strong class="font-semibold text-slate-900 dark:text-white"
+                  >5 years of hands-on experience</strong
+                >
+                across the Zoho ecosystem, I build systems that remove manual
+                work, connect disconnected tools, and give business owners clear
+                visibility into their operations.
+              </p>
+              <p>
+                I work remotely with clients across the
+                <strong class="font-semibold text-slate-900 dark:text-white"
+                  >US, UK, Europe and the Caribbean</strong
+                >, delivering reliable, well-documented solutions on freelance
+                and long-term contracts.
+              </p>
+            </div>
+
+            <div class="mt-9 flex flex-wrap gap-2.5">
+              <span class="chip">Independent Zoho Developer</span>
+              <span class="chip">Freelance &amp; long-term contracts</span>
+              <span class="chip">Well-documented handover</span>
+              <span class="chip">Remote-first</span>
+            </div>
+          </div>
+
+          <div class="reveal grid gap-4 sm:grid-cols-2">
+            <div class="feature-card">
+              <div class="icon-badge">
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+                  <path d="M7 15l4-5 3 3 4-6" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Visibility first</h3>
+              <p class="feature-text">
+                Dashboards and automated reports so owners see the numbers
+                without chasing them.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-badge">
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 2v4m0 12v4M4.9 4.9l2.8 2.8m8.6 8.6l2.8 2.8M2 12h4m12 0h4M4.9 19.1l2.8-2.8m8.6-8.6l2.8-2.8"
+                  />
+                </svg>
+              </div>
+              <h3 class="feature-title">Automation over admin</h3>
+              <p class="feature-text">
+                Deluge functions and workflow rules that replace repetitive
+                manual steps.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-badge">
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5" />
+                  <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7L12 19" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Connected tools</h3>
+              <p class="feature-text">
+                Shopify, WooCommerce, Stripe, PayPal, ShipStation and more,
+                wired into Zoho.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-badge">
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3l8 4v5c0 4.5-3.2 8.3-8 9-4.8-.7-8-4.5-8-9V7z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <h3 class="feature-title">Compliance-ready</h3>
+              <p class="feature-text">
+                Regional e-invoicing built to spec: ZATCA, Peppol PINT-AE,
+                ZUGFeRD, EN 16931.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== SKILLS ============================== -->
+    <section
+      id="skills"
+      class="relative overflow-hidden border-y border-slate-200 bg-slate-50/60 py-20 md:py-28 dark:border-white/5 dark:bg-white/[0.02]"
+    >
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="section-eyebrow justify-center">Skills</p>
+          <h2 class="section-title">Technical toolkit</h2>
+          <p class="section-sub">
+            Depth across the Zoho ecosystem, backed by scripting, APIs and real
+            integration work.
+          </p>
+        </div>
+
+        <div
+          id="skills-grid"
+          class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ============================== PROJECTS ============================== -->
+    <section id="projects" class="relative py-20 md:py-28">
+      <div
+        class="glow absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-500/10"
+      ></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="section-eyebrow justify-center">Projects</p>
+          <h2 class="section-title">Case studies</h2>
+          <p class="section-sub">
+            Real client systems, what they needed, and what the build changed.
+          </p>
+        </div>
+
+        <div id="projects-grid" class="mt-14 grid gap-6 lg:grid-cols-2"></div>
+      </div>
+    </section>
+
+    <!-- ============================== SERVICES ============================== -->
+    <section
+      id="services"
+      class="border-y border-slate-200 bg-slate-50/60 py-20 md:py-28 dark:border-white/5 dark:bg-white/[0.02]"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="section-eyebrow justify-center">Services</p>
+          <h2 class="section-title">What I can build for you</h2>
+          <p class="section-sub">
+            Scoped, documented and handed over so your team can run it without
+            me.
+          </p>
+        </div>
+
+        <div
+          id="services-grid"
+          class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ============================== TESTIMONIALS ============================== -->
+    <section id="testimonials" class="py-20 md:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="section-eyebrow justify-center">Testimonials</p>
+          <h2 class="section-title">What clients say</h2>
+        </div>
+
+        <div
+          id="testimonials-grid"
+          class="mt-14 grid gap-6 md:grid-cols-2"
+        ></div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section
+      id="contact"
+      class="relative overflow-hidden border-t border-slate-200 py-20 md:py-28 dark:border-white/5"
+    >
+      <div class="absolute inset-0 grid-bg"></div>
+      <div
+        class="glow absolute -bottom-32 left-1/3 h-80 w-80 rounded-full bg-brand-500/20"
+      ></div>
+
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="reveal">
+            <p class="section-eyebrow">Contact</p>
+            <h2 class="section-title">Let's talk about your Zoho setup</h2>
+            <p class="section-sub mx-0">
+              Tell me what's slowing your team down. I'll come back with a clear
+              scope, a timeline and a fixed price.
+            </p>
+
+            <div class="mt-10 space-y-3">
+              <a
+                href="https://wa.me/8801615250363"
+                target="_blank"
+                rel="noopener"
+                class="contact-row"
+              >
+                <span class="icon-badge shrink-0">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.93L2 22l5.35-1.4a9.8 9.8 0 0 0 4.69 1.2c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.75 9.75 0 0 0 12.04 2zm5.43 12.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.08 3.33 5.05 4.54.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label">Phone / WhatsApp</span>
+                  <span class="contact-value">+880 1615 250363</span>
+                </span>
+              </a>
+
+              <a href="mailto:zoho.advisor2015@gmail.com" class="contact-row">
+                <span class="icon-badge shrink-0">
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                    <path d="M3.5 7l8.5 6 8.5-6" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value break-all"
+                    >zoho.advisor2015@gmail.com</span
+                  >
+                </span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/moh-kamruzzaman-75866a34a"
+                target="_blank"
+                rel="noopener"
+                class="contact-row"
+              >
+                <span class="icon-badge shrink-0">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.82-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.45-2.2 2.99V21H9z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">moh-kamruzzaman</span>
+                </span>
+              </a>
+
+              <div class="contact-row cursor-default">
+                <span class="icon-badge shrink-0">
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  >
+                    <path
+                      d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"
+                    />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value"
+                    >Rajshahi, Bangladesh - remote, global</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="reveal">
+            <form
+              id="contact-form"
+              class="rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-xl backdrop-blur-xl sm:p-8 dark:border-white/10 dark:bg-white/[0.05]"
+            >
+              <h3
+                class="font-display text-lg font-bold text-slate-900 dark:text-white"
+              >
+                Send a project brief
+              </h3>
+              <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                This opens your email app with the message ready to send.
+              </p>
+
+              <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="name" class="field-label">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    class="field"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="field-label">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    class="field"
+                  />
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <label for="subject" class="field-label">Subject</label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  value="Zoho project enquiry"
+                  class="field"
+                />
+              </div>
+
+              <div class="mt-4">
+                <label for="message" class="field-label">Project details</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Tell me about your project - which Zoho apps you use, what's manual today, and what you'd like automated."
+                  class="field resize-y"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition hover:bg-brand-500"
+              >
+                Send message
+                <svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </button>
+
+              <p
+                class="mt-4 text-center text-xs text-slate-500 dark:text-slate-400"
+              >
+                Prefer chat?
+                <a
+                  href="https://wa.me/8801615250363"
+                  target="_blank"
+                  rel="noopener"
+                  class="font-semibold text-brand-600 hover:underline dark:text-brand-400"
+                  >Message me on WhatsApp</a
+                >
+                - usually a reply within a few hours.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FOOTER ============================== -->
+    <footer class="border-t border-slate-200 py-10 dark:border-white/5">
+      <div
+        class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 sm:px-6 md:flex-row lg:px-8"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="profile.jpg"
+            alt=""
+            width="36"
+            height="36"
+            class="h-9 w-9 rounded-lg object-cover object-top"
+          />
+          <div class="text-sm">
+            <p
+              class="font-display font-semibold text-slate-900 dark:text-white"
+            >
+              Moh. Kamruzzaman
+            </p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">
+              Senior Zoho Developer · Independent freelance developer
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a
+            href="https://wa.me/8801615250363"
+            target="_blank"
+            rel="noopener"
+            aria-label="WhatsApp"
+            class="social"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.93L2 22l5.35-1.4a9.8 9.8 0 0 0 4.69 1.2c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.75 9.75 0 0 0 12.04 2z"
+              />
+            </svg>
+          </a>
+          <a
+            href="mailto:zoho.advisor2015@gmail.com"
+            aria-label="Email"
+            class="social"
+          >
+            <svg
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2.5" />
+              <path d="M3.5 7l8.5 6 8.5-6" />
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/moh-kamruzzaman-75866a34a"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            class="social"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.82-1.95 3.75-1.95 4 0 4.4 2.5 4.4 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.45-2.2 2.99V21H9z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          © <span id="year">2026</span> Moh. Kamruzzaman. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a
+      href="https://wa.me/8801615250363"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+      class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-emerald-500/30 transition hover:scale-105"
+    >
+      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.08 3.33 5.05 4.54.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35z"
+        />
+        <path
+          d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.93L2 22l5.35-1.4a9.8 9.8 0 0 0 4.69 1.2h.01c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.75 9.75 0 0 0 12.04 2zm0 17.97h-.01a8.16 8.16 0 0 1-4.15-1.14l-.3-.18-3.09.81.83-3.02-.19-.31a8.13 8.13 0 0 1-1.25-4.35c0-4.52 3.68-8.19 8.21-8.19 2.19 0 4.25.86 5.8 2.4a8.15 8.15 0 0 1 2.4 5.8c0 4.52-3.68 8.18-8.25 8.18z"
+        />
+      </svg>
+    </a>
+
+    <!-- ============================== DATA + BEHAVIOUR ============================== -->
+    <script>
+      /* ---------------------------------------------------------------
+         All page content lives here. Edit these arrays to update the
+         site - the markup above is generated from them.
+      ----------------------------------------------------------------*/
+
+      const SKILLS = [
+        {
+          title: "Zoho Development",
+          icon: "layers",
+          items: [
+            "Zoho CRM",
+            "Zoho Books",
+            "Zoho Creator",
+            "Zoho Writer",
+            "Zoho Analytics",
+            "Zoho People",
+            "Zoho Desk",
+            "Zoho Inventory",
+            "Zoho Flow",
+            "Zoho One",
+            "Custom Functions",
+            "Workflow Rules",
+            "Blueprint",
+            "Client / Portal Management",
+          ],
+        },
+        {
+          title: "Scripting & APIs",
+          icon: "code",
+          items: [
+            "Deluge (Advanced)",
+            "REST & SOAP APIs",
+            "JSON",
+            "XML",
+            "Webhooks",
+            "OAuth 2.0",
+            "PHP",
+            "Node.js",
+            "MySQL",
+          ],
+        },
+        {
+          title: "Business Process Automation",
+          icon: "zap",
+          items: [
+            "Automated reporting systems",
+            "Dynamic pricing & proposal engines",
+            "Multi-role portal design",
+            "Email marketing & pipeline automation",
+            "Recurring document generation",
+          ],
+        },
+        {
+          title: "Integrations",
+          icon: "plug",
+          items: [
+            "Shopify",
+            "Bexio",
+            "Hostway",
+            "WooCommerce",
+            "PayPal",
+            "Stripe",
+            "ShipStation",
+          ],
+        },
+        {
+          title: "E-Invoicing & Compliance",
+          icon: "receipt",
+          items: [
+            "ZATCA Phase 2 (Fatoora)",
+            "UBL 2.1",
+            "QR Code & CSID",
+            "UAE Peppol PINT-AE",
+            "ZUGFeRD",
+            "Swiss QR-Bill",
+            "EN 16931",
+          ],
+        },
+        {
+          title: "Portals & Reporting",
+          icon: "users",
+          items: [
+            "Customer portals",
+            "Doctor portals",
+            "Lawyer portals",
+            "Admin consoles",
+            "Zoho Writer templates",
+            "Analytics dashboards",
+          ],
+        },
+      ];
+
+      const PROJECTS = [
+        {
+          n: "01",
+          title: "Automated Property Cost Reporting",
+          client: "Mauricio Watson",
+          industry: "Real Estate Property Management",
+          location: "Puerto Rico",
+          body: "Built an automated monthly reporting system using Zoho Writer and Zoho Analytics that generates and sends landowners a complete breakdown of their property management costs on the first of every month - with no manual work required from the client's team.",
+          tags: ["Zoho Writer", "Zoho Analytics", "Scheduled Automation"],
+        },
+        {
+          n: "02",
+          title: "CRM, Email Marketing & Pipeline Setup",
+          client: "Andrea Mazzarella",
+          industry: "ERP Solutions Provider",
+          location: "Italy",
+          body: "Set up Zoho CRM from the ground up to manage the client's own customer base, including structured email marketing campaigns and a fully organized Deals pipeline to track opportunities from first contact to close.",
+          tags: ["Zoho CRM", "Email Marketing", "Deals Pipeline"],
+        },
+        {
+          n: "03",
+          title: "Dynamic Cost Proposal & Pricing Engine",
+          client: "James Blackman",
+          industry: "Shipping & Logistics Management",
+          location: "United Kingdom",
+          body: "Developed a dynamic cost proposal system that generates complete pricing models based on each client's specific shipping requirements, using tiered pricing logic to automatically calculate and present accurate quotes.",
+          tags: ["Deluge", "Tiered Pricing Logic", "Quote Generation"],
+        },
+        {
+          n: "04",
+          title: "Multi-Role Healthcare Portal",
+          client: "Hossain Ali",
+          industry: "Healthcare",
+          location: "United States",
+          body: "Configured Zoho CRM to manage the client's full customer base, with a dedicated Doctor Portal so each doctor could manage their own patients independently. For patients needing legal assistance, built a connected Lawyer Portal within the same system, letting lawyers manage their clients from a single unified platform.",
+          tags: ["Zoho CRM", "Zoho Creator", "Multi-Role Portals"],
+        },
+      ];
+
+      const SERVICES = [
+        {
+          icon: "crm",
+          title: "Zoho CRM setup & customization",
+          text: "Modules, layouts, pipeline management and the automation that keeps records clean.",
+        },
+        {
+          icon: "code",
+          title: "Custom Deluge functions & workflows",
+          text: "Advanced scripting, workflow rules and blueprints tailored to how your team works.",
+        },
+        {
+          icon: "users",
+          title: "Creator apps & multi-role portals",
+          text: "Customer, doctor, lawyer and admin portals with the right access for each role.",
+        },
+        {
+          icon: "chart",
+          title: "Automated reporting",
+          text: "Zoho Writer + Analytics reports that generate and send themselves on schedule.",
+        },
+        {
+          icon: "tag",
+          title: "Dynamic pricing & proposals",
+          text: "Tiered pricing engines that turn requirements into accurate quotes in minutes.",
+        },
+        {
+          icon: "plug",
+          title: "Third-party integrations",
+          text: "E-commerce, payments and shipping platforms connected to Zoho with clean data flow.",
+        },
+        {
+          icon: "receipt",
+          title: "Regional e-invoicing compliance",
+          text: "ZATCA Phase 2, UAE Peppol PINT-AE and ZUGFeRD implementations built to spec.",
+        },
+      ];
+
+      const TESTIMONIALS = [
+        {
+          quote:
+            "Before this, putting together monthly cost reports for our property owners took hours of manual work every month. Now it happens automatically, and the reports are clean, accurate, and arrive like clockwork. It's made us look far more professional to our landowners.",
+          name: "Mauricio Watson",
+          role: "Real Estate Property Management",
+          location: "Puerto Rico",
+        },
+        {
+          quote:
+            "We needed a CRM that actually matched how we sell, not a generic setup. The pipeline and email marketing integration gave our team real visibility into every deal, and nothing falls through the cracks anymore.",
+          name: "Andrea Mazzarella",
+          role: "ERP Solutions Provider",
+          location: "Italy",
+        },
+        {
+          quote:
+            "Our pricing used to depend on spreadsheets and guesswork. Now we generate accurate, tiered proposals in minutes based on the client's actual requirements. It's sped up our sales process significantly.",
+          name: "James Blackman",
+          role: "Shipping & Logistics Management",
+          location: "United Kingdom",
+        },
+        {
+          quote:
+            "We had doctors managing patients and lawyers managing legal cases, but no single system connecting it all. Now everyone works inside their own portal, on one platform, with nothing duplicated. It's made our whole operation far more organized.",
+          name: "Hossain Ali",
+          role: "Healthcare Business",
+          location: "United States",
+        },
+      ];
+
+      const MARQUEE = [
+        "Zoho CRM",
+        "Zoho Books",
+        "Zoho Creator",
+        "Zoho Analytics",
+        "Zoho Writer",
+        "Zoho Flow",
+        "Zoho Desk",
+        "Zoho Inventory",
+        "Deluge",
+        "REST API",
+        "OAuth 2.0",
+        "Node.js",
+        "PHP",
+        "MySQL",
+        "Shopify",
+        "WooCommerce",
+        "Stripe",
+        "PayPal",
+        "ShipStation",
+        "ZATCA",
+        "Peppol",
+        "ZUGFeRD",
+      ];
+
+      /* ---------------------------- icons ---------------------------- */
+      const S = (p) =>
+        `<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+
+      const ICONS = {
+        layers: S('<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'),
+        code: S('<path d="M9 6l-6 6 6 6"/><path d="M15 6l6 6-6 6"/>'),
+        zap: S('<path d="M13 2L5 14h6l-1 8 8-12h-6z"/>'),
+        plug: S(
+          '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7L12 19"/>',
+        ),
+        receipt: S(
+          '<path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+        ),
+        users: S(
+          '<circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5.8M18 20a5.6 5.6 0 0 0-2-4"/>',
+        ),
+        crm: S(
+          '<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 13h8M8 16h5"/>',
+        ),
+        chart: S(
+          '<path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 15l4-5 3 3 4-6"/>',
+        ),
+        tag: S(
+          '<path d="M3 11.5V5a2 2 0 0 1 2-2h6.5L21 12.5 12.5 21z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
+        ),
+        pin: S(
+          '<path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+        ),
+      };
+
+      const esc = (s) =>
+        String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+
+      /* ---------------------------- render ---------------------------- */
+      document.getElementById("skills-grid").innerHTML = SKILLS.map(
+        (s) => `
+        <article class="reveal group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-brand-400/40">
+          <div class="icon-badge">${ICONS[s.icon]}</div>
+          <h3 class="mt-4 font-display text-base font-bold text-slate-900 dark:text-white">${esc(
+            s.title,
+          )}</h3>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            ${s.items
+              .map(
+                (i) =>
+                  `<li class="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600 dark:bg-white/5 dark:text-slate-300">${esc(
+                    i,
+                  )}</li>`,
+              )
+              .join("")}
+          </ul>
+        </article>`,
+      ).join("");
+
+      document.getElementById("projects-grid").innerHTML = PROJECTS.map(
+        (p) => `
+        <article class="reveal group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-2xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-brand-400/40">
+          <span class="pointer-events-none absolute right-5 top-3 font-display text-6xl font-bold text-slate-100 transition group-hover:text-brand-100 dark:text-white/[0.04] dark:group-hover:text-brand-400/10">${p.n}</span>
+          <h3 class="relative font-display text-xl font-bold leading-snug text-slate-900 dark:text-white">${esc(
+            p.title,
+          )}</h3>
+          <dl class="relative mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-1.5"><dt class="font-semibold text-slate-700 dark:text-slate-200">Client:</dt><dd>${esc(
+              p.client,
+            )}</dd></div>
+            <div class="flex items-center gap-1.5"><dt class="font-semibold text-slate-700 dark:text-slate-200">Industry:</dt><dd>${esc(
+              p.industry,
+            )}</dd></div>
+            <div class="flex items-center gap-1.5"><dt class="font-semibold text-slate-700 dark:text-slate-200">Location:</dt><dd>${esc(
+              p.location,
+            )}</dd></div>
+          </dl>
+          <p class="relative mt-5 flex-1 text-sm leading-relaxed">${esc(p.body)}</p>
+          <ul class="relative mt-6 flex flex-wrap gap-2">
+            ${p.tags
+              .map(
+                (t) =>
+                  `<li class="rounded-lg border border-brand-500/20 bg-brand-500/10 px-2.5 py-1 text-xs font-semibold text-brand-700 dark:text-brand-300">${esc(
+                    t,
+                  )}</li>`,
+              )
+              .join("")}
+          </ul>
+        </article>`,
+      ).join("");
+
+      document.getElementById("services-grid").innerHTML = SERVICES.map(
+        (s) => `
+        <article class="reveal group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-brand-400/40">
+          <div class="icon-badge">${ICONS[s.icon]}</div>
+          <h3 class="mt-4 font-display text-base font-bold text-slate-900 dark:text-white">${esc(
+            s.title,
+          )}</h3>
+          <p class="mt-2.5 text-sm leading-relaxed">${esc(s.text)}</p>
+        </article>`,
+      ).join("");
+
+      document.getElementById("testimonials-grid").innerHTML = TESTIMONIALS.map(
+        (t) => `
+        <figure class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm dark:border-white/10 dark:bg-white/[0.04]">
+          <svg class="h-8 w-8 text-brand-500/30" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6C6.5 6 4 8.6 4 11.8 4 15 6.2 17 8.8 17c.5 0 1-.1 1.3-.2-.6 1.6-2 2.8-3.6 3.2l.5 1.5c3.6-.9 6.2-4.2 6.2-8.6C13.2 8.6 11.9 6 9.5 6zm10 0C16.5 6 14 8.6 14 11.8 14 15 16.2 17 18.8 17c.5 0 1-.1 1.3-.2-.6 1.6-2 2.8-3.6 3.2l.5 1.5c3.6-.9 6.2-4.2 6.2-8.6C23.2 8.6 21.9 6 19.5 6z"/></svg>
+          <blockquote class="mt-4 flex-1 text-sm italic leading-relaxed text-slate-600 dark:text-slate-300">${esc(
+            t.quote,
+          )}</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3 border-t border-slate-200 pt-5 dark:border-white/10">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 text-sm font-bold text-white">${esc(
+              t.name.charAt(0),
+            )}</span>
+            <span class="min-w-0">
+              <span class="block text-sm font-semibold text-slate-900 dark:text-white">${esc(
+                t.name,
+              )}</span>
+              <span class="block truncate text-xs text-slate-500 dark:text-slate-400">${esc(
+                t.role,
+              )} · ${esc(t.location)}</span>
+            </span>
+          </figcaption>
+        </figure>`,
+      ).join("");
+
+      const marqueeHTML = MARQUEE.map(
+        (m) =>
+          `<span class="whitespace-nowrap font-display text-sm font-semibold text-slate-400 dark:text-slate-500">${esc(
+            m,
+          )}</span>`,
+      ).join('<span class="h-1.5 w-1.5 rounded-full bg-brand-500/40"></span>');
+      document.getElementById("marquee-items").innerHTML = marqueeHTML;
+      document.getElementById("marquee-items-2").innerHTML = marqueeHTML;
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* ---------------------------- theme ---------------------------- */
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const dark = document.documentElement.classList.toggle("dark");
+        try {
+          localStorage.setItem("theme", dark ? "dark" : "light");
+        } catch (e) {}
+      });
+
+      /* ------------------------- mobile menu ------------------------- */
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMenu = () => {
+        mobileMenu.classList.add("hidden");
+        menuToggle.setAttribute("aria-expanded", "false");
+      };
+      menuToggle.addEventListener("click", () => {
+        const open = mobileMenu.classList.toggle("hidden") === false;
+        menuToggle.setAttribute("aria-expanded", String(open));
+      });
+      mobileMenu
+        .querySelectorAll("a")
+        .forEach((a) => a.addEventListener("click", closeMenu));
+
+      /* ------------------------ header on scroll ------------------------ */
+      const header = document.getElementById("header");
+      const onScroll = () => {
+        header.classList.toggle("backdrop-blur-xl", window.scrollY > 10);
+        header.classList.toggle("bg-white/80", window.scrollY > 10);
+        header.classList.toggle("dark:bg-ink-800/80", window.scrollY > 10);
+        header.classList.toggle("shadow-sm", window.scrollY > 10);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      /* --------------------- reveal + active nav --------------------- */
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              revealObserver.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el, i) => {
+        el.style.transitionDelay = (i % 4) * 70 + "ms";
+        revealObserver.observe(el);
+      });
+
+      const links = [...document.querySelectorAll(".nav-link")];
+      const sections = links
+        .map((l) => document.querySelector(l.getAttribute("href")))
+        .filter(Boolean);
+      const navObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            links.forEach((l) =>
+              l.classList.toggle(
+                "is-active",
+                l.getAttribute("href") === "#" + e.target.id,
+              ),
+            );
+          });
+        },
+        { rootMargin: "-45% 0px -50% 0px" },
+      );
+      sections.forEach((s) => navObserver.observe(s));
+
+      /* ------------------------ stat counters ------------------------ */
+      const countObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const to = +el.dataset.to;
+            const start = performance.now();
+            const step = (now) => {
+              const t = Math.min((now - start) / 900, 1);
+              el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3)));
+              if (t < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+            countObserver.unobserve(el);
+          });
+        },
+        { threshold: 1 },
+      );
+      document
+        .querySelectorAll(".counter")
+        .forEach((el) => countObserver.observe(el));
+
+      /* -------------------------- contact form -------------------------- */
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", (ev) => {
+          ev.preventDefault();
+          const f = ev.target;
+          const subject = f.subject.value.trim() || "Zoho project enquiry";
+          const body = [
+            "Name: " + f.name.value.trim(),
+            "Email: " + f.email.value.trim(),
+            "",
+            f.message.value.trim(),
+          ].join("\n");
+          window.location.href =
+            "mailto:zoho.advisor2015@gmail.com?subject=" +
+            encodeURIComponent(subject) +
+            "&body=" +
+            encodeURIComponent(body);
+        });
+    </script>
+
+    <!-- Component styles (plain CSS so they work with the Tailwind CDN) -->
+    <style>
+      .nav-link {
+        border-radius: 9999px;
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: rgb(71 85 105);
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+      }
+      .nav-link:hover {
+        background: rgb(241 245 249);
+        color: rgb(15 23 42);
+      }
+      .nav-link.is-active {
+        background: rgba(51, 134, 254, 0.12);
+        color: rgb(21 81 225);
+      }
+      .dark .nav-link {
+        color: rgb(203 213 225);
+      }
+      .dark .nav-link:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+      .dark .nav-link.is-active {
+        background: rgba(51, 134, 254, 0.18);
+        color: rgb(142 196 255);
+      }
+
+      .m-link {
+        display: block;
+        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        color: rgb(51 65 85);
+      }
+      .m-link:hover {
+        background: rgb(241 245 249);
+        color: rgb(21 81 225);
+      }
+      .dark .m-link {
+        color: rgb(203 213 225);
+      }
+      .dark .m-link:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+      }
+
+      .section-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgb(29 102 244);
+      }
+      .section-eyebrow::before {
+        content: "";
+        height: 1px;
+        width: 1.75rem;
+        background: currentColor;
+        opacity: 0.6;
+      }
+      .section-eyebrow.justify-center::after {
+        content: "";
+        height: 1px;
+        width: 1.75rem;
+        background: currentColor;
+        opacity: 0.6;
+      }
+      .dark .section-eyebrow {
+        color: rgb(142 196 255);
+      }
+
+      .section-title {
+        margin-top: 1rem;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: rgb(15 23 42);
+      }
+      .dark .section-title {
+        color: #fff;
+      }
+
+      .section-sub {
+        margin: 1rem auto 0;
+        max-width: 42rem;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: rgb(71 85 105);
+      }
+      .dark .section-sub {
+        color: rgb(148 163 184);
+      }
+
+      .icon-badge {
+        display: grid;
+        height: 2.75rem;
+        width: 2.75rem;
+        place-items: center;
+        border-radius: 0.875rem;
+        background: rgba(51, 134, 254, 0.1);
+        color: rgb(29 102 244);
+        border: 1px solid rgba(51, 134, 254, 0.18);
+      }
+      .dark .icon-badge {
+        color: rgb(142 196 255);
+      }
+
+      .feature-card {
+        border-radius: 1rem;
+        border: 1px solid rgb(226 232 240);
+        background: #fff;
+        padding: 1.5rem;
+        transition:
+          transform 0.25s,
+          border-color 0.25s,
+          box-shadow 0.25s;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: rgb(142 196 255);
+        box-shadow: 0 20px 40px -24px rgba(29, 102, 244, 0.35);
+      }
+      .dark .feature-card {
+        border-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .dark .feature-card:hover {
+        border-color: rgba(89, 164, 255, 0.4);
+      }
+      .feature-title {
+        margin-top: 1rem;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgb(15 23 42);
+      }
+      .dark .feature-title {
+        color: #fff;
+      }
+      .feature-text {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.65;
+      }
+
+      .chip {
+        border-radius: 9999px;
+        border: 1px solid rgb(226 232 240);
+        padding: 0.4rem 0.875rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: rgb(71 85 105);
+      }
+      .dark .chip {
+        border-color: rgba(255, 255, 255, 0.12);
+        color: rgb(203 213 225);
+      }
+
+      .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgb(226 232 240);
+        background: rgba(255, 255, 255, 0.6);
+        padding: 1rem 1.25rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      a.contact-row:hover {
+        border-color: rgb(142 196 255);
+        transform: translateX(3px);
+      }
+      .dark .contact-row {
+        border-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .dark a.contact-row:hover {
+        border-color: rgba(89, 164, 255, 0.45);
+      }
+      .contact-label {
+        display: block;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgb(100 116 139);
+      }
+      .contact-value {
+        display: block;
+        margin-top: 0.15rem;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: rgb(15 23 42);
+      }
+      .dark .contact-value {
+        color: #fff;
+      }
+
+      .field-label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgb(100 116 139);
+      }
+      .field {
+        width: 100%;
+        border-radius: 0.75rem;
+        border: 1px solid rgb(226 232 240);
+        background: #fff;
+        padding: 0.75rem 1rem;
+        font-size: 0.9375rem;
+        color: rgb(15 23 42);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .field:focus {
+        border-color: rgb(89 164 255);
+        box-shadow: 0 0 0 4px rgba(51, 134, 254, 0.14);
+      }
+      .dark .field {
+        border-color: rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+      }
+
+      .social {
+        display: grid;
+        height: 2.25rem;
+        width: 2.25rem;
+        place-items: center;
+        border-radius: 0.625rem;
+        border: 1px solid rgb(226 232 240);
+        color: rgb(100 116 139);
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .social:hover {
+        color: rgb(29 102 244);
+        border-color: rgb(142 196 255);
+      }
+      .dark .social {
+        border-color: rgba(255, 255, 255, 0.1);
+        color: rgb(148 163 184);
+      }
+      .dark .social:hover {
+        color: rgb(142 196 255);
+      }
+    </style>
+  </body>
+</html>
